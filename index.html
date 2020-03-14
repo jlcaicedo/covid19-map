@@ -48,7 +48,6 @@
     const popup = new window.google.maps.InfoWindow()
     async function renderData() {
       const data = await getData()
-      console.log(data)
       data.forEach(item => {
         const marker = new window.google.maps.Marker({
           position: {
