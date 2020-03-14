@@ -39,37 +39,6 @@
       const data = await getData()
       console.log(data)
     }
-    
-    function renderExtraData({ confirmed, deaths, recovered, provincestate, countryregion }) {
-      return (`
-        <div>
-          <p> <strong>${provincestate} - ${countryregion}</strong> </p>
-          <p> confirmados: ${confirmed} </p>
-          <p> muertes: ${deaths} </p>
-          <p> recuperados: ${recovered} </p>
-        </div>
-      `)
-    }
-    const icon = './icon.png'
-    const popup = new window.google.maps.InfoWindow()
-    async function renderData() {
-      const data = await getData()
-      data.forEach(item => {
-        const marker = new window.google.maps.Marker({
-          position: {
-            lat: item.location.lat,
-            lng: item.location.lng,
-          },
-          map,
-          icon,
-          title: String(item.confirmed),
-        })
-        marker.addListener('click', () => {
-          popup.setContent(renderExtraData(item))
-          popup.open(map, marker)
-        })
-      })
-    }
   </script>
 
 </body>
