@@ -34,6 +34,12 @@
       const data = await response.json()
       return data
     }
+    
+    async funtion renderData() {
+      const data = await getData()
+      console.log(data)
+    }
+    
     function renderExtraData({ confirmed, deaths, recovered, provincestate, countryregion }) {
       return (`
         <div>
